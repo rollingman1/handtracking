@@ -172,6 +172,7 @@ Use the [export_inference_graph.py](https://github.com/tensorflow/models/blob/ma
 More guidance on this [here](https://pythonprogramming.net/testing-custom-object-detector-tensorflow-object-detection-api-tutorial/?completed=/training-custom-objects-tensorflow-object-detection-api-tutorial/).
 
 ## Thoughts on Optimization.
+
 A few things that led to noticeable performance increases.
 
 - Threading: Turns out that reading images from a webcam is a heavy I/O event and if run on the main application thread can slow down the program. I implemented some good ideas from [Adrian Rosebuck](https://www.pyimagesearch.com/2017/02/06/faster-video-file-fps-with-cv2-videocapture-and-opencv/) on parrallelizing image capture across multiple worker threads. This mostly led to an FPS increase of about 5 points.
